@@ -1,0 +1,11 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "SDFHS93N6L.com.edu.parentEducation",
+                "paths": [ "*" ]
+            }
+        ]
+    }
+}

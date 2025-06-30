@@ -1,0 +1,31 @@
+{
+    "name": "zyan/think-wechat",
+    "description": "EasyWechat For Thnkphp5.1+",
+    "type": "think-extend",
+    "keywords": ["wechat", "weixin","easywechat","thinkphp","think", "sdk"],
+    "require": {
+        "overtrue/wechat": "^5.0",
+        "topthink/framework": "^5.1 || ^6.0"
+    },
+    "license": "MIT",
+    "authors": [{
+        "name": "耐小心",
+        "email": "qiqizjl@qq.com"
+    },{
+        "name": "读心印",
+        "email": "aa24615@qq.com"
+    }],
+    "autoload": {
+        "psr-4": {
+            "Naixiaoxin\\ThinkWechat\\": "src/"
+        },
+        "files": [
+            "src/helper.php"
+        ]
+    },
+    "extra": {
+        "think-config": {
+          "wechat": "src/config.php"
+        }
+      }
+}
