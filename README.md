@@ -1,139 +1,103 @@
-# Medical equipment networking
 
-This project is a hospital-oriented networking platform designed to unify medical equipment status monitoring, fault reporting, maintenance scheduling, and statistical analysis. Built on **ThinkPHP 5.1.39 LTS**, it leverages a robust MVC structure with extensive support for database interactions, modular extensions, and secure RESTful routing.
+# Finance API
 
-## 🌐 Overview
+**Finance API** is a lightweight and efficient web-based service built using the ThinkPHP 5.1 framework. It is designed to serve as a modular backend for managing financial data, facilitating seamless integration with web or mobile clients.
 
-Modern hospitals manage hundreds or even thousands of medical devices. Ensuring their operational status, logging maintenance activities, and planning upgrades can be tedious without a centralized system. This project addresses that gap by offering a lightweight yet powerful **Medical Equipment Networking Platform**, featuring:
+## 🌟 Features
 
-- Real-time status display of all registered devices
-- Intelligent alert and fault logging
-- Equipment maintenance lifecycle management
-- Detailed reporting and exportable statistics
-- Multi-role access control and user authentication
+- 🧩 **Modular Architecture**: Clean separation of application logic and routing through ThinkPHP 5.1.
+- 📊 **Data Handling**: Built-in support for API-based data exchange using JSON.
+- 🛡️ **Security First**: Designed with secure access and proper input validation in mind.
+- 🚀 **Performance Optimized**: Powered by PHP and optimized for fast responses.
 
-## 🚀 Getting Started
+## 🏁 Quick Start
 
-This system is built with **ThinkPHP 5.1.x**. Make sure PHP ≥ 7.1 is installed.
-
-### 1. Clone the project
-
-```bash
-git clone https://github.com/feng-lai/Medical_equipment_networking.git
-cd Medical_equipment_networking
-```
-
-### 2. Configure your environment
-
-Copy `.env.example` to `.env` or configure database in `config/database.php`.
-
-```php
-// Example snippet
-return [
-  'type'     => 'mysql',
-  'hostname' => '127.0.0.1',
-  'database' => 'hospital_equipment',
-  'username' => 'root',
-  'password' => 'your_password',
-  ...
-];
-```
-
-### 3. Run with built-in CLI server (for development)
-
-```bash
-php think run
-```
-
-Or set up with Apache/Nginx pointing to `/public` directory.
-
-### 4. Access
-
-Visit `http://localhost:8000` in your browser.
-
-## 🧭 Usage Example
-
-The system entry point for command-line operations is `start.php`:
+This project is powered by [ThinkPHP 5.1](https://www.thinkphp.cn/) and supports command-line execution. Below is the entry file for bootstrapping the application:
 
 ```php
 #!/usr/bin/env php
 <?php
-
 namespace think;
 
 require __DIR__ . '/thinkphp/base.php';
 
-// Initialize the application
 Container::get('app')->path(__DIR__ . '/application/')->initialize();
 
-// Initialize console environment
 Console::init();
 ```
 
-This allows you to run scheduled maintenance commands or database tasks from the terminal.
+Save the file and execute it with:
 
-## 🧱 Project Structure
-
-```
-├── application/          # Core MVC application
-│   ├── controller/       # Business logic controllers
-│   ├── model/            # ORM models for equipment, users, logs
-│   ├── view/             # HTML templates (Think template engine)
-├── public/               # Web root
-│   └── index.php         # Front controller
-├── config/               # System configuration files
-├── thinkphp/             # Framework core
-├── start.php             # CLI entry point
-├── composer.json         # Dependencies
+```bash
+php entry.php
 ```
 
-## 🔐 Features
+> Replace `entry.php` with your actual CLI bootstrap file.
 
-- **Device Registry**: Add/remove/update hospital devices
-- **Fault Reporting**: Automatically records and notifies device malfunctions
-- **Maintenance Management**: Tracks repair status and next service due dates
-- **Reports Dashboard**: Export Excel/PDF reports; charts powered by ECharts
-- **User System**: Admin/staff login, operation logs, permission control
-- **Responsive UI**: Mobile-optimized for on-site technicians
+## 📁 Project Structure
 
-## 📦 Built With
+```
+finance-api/
+├── application/       # Main business logic (Controllers, Models, etc.)
+├── public/            # Web root directory
+├── thinkphp/          # ThinkPHP core framework
+├── config/            # System configuration
+├── route/             # Routing definitions
+├── composer.json      # Dependency definitions
+└── entry.php          # CLI entry (custom name)
+```
 
-- [ThinkPHP 5.1.39 LTS](https://thinkphp.cn/)
-- PHP 7.1+
-- MySQL / MariaDB
-- HTML + CSS + jQuery
-- Apache / Nginx
+## 🔧 Requirements
 
-## 🛠️ Framework Version Highlights
+- PHP >= 7.1.0
+- Composer
+- MySQL / SQLite (or any supported DB)
+- Apache / Nginx (for web deployment)
 
-**ThinkPHP 5.1.39 LTS** brings major performance and functionality improvements over previous releases, including:
+## 📌 Notable Use Cases
 
-- Enhanced ORM: New `getWhere` support for composite keys
-- Improved Redis and Memcached drivers
-- Extended support for JSON fields and custom validators
-- Support for advanced queries (e.g., `hasWhere`, `withCount`)
-- Better compatibility with PHP 7.4+
-- Cleaner logging, caching, and routing mechanisms
+- Internal finance management system
+- Backend service for financial tracking apps
+- API gateway for budget tracking and analytics tools
 
-> To see the full changelog, refer to `docs/CHANGELOG_THINKPHP_5.1.md` or the [official release notes](https://www.thinkphp.cn/topic/69944.html).
+## 🛠️ Framework: ThinkPHP 5.1
 
-## 🧪 Future Improvements
+ThinkPHP is a fast and simple PHP framework. This project specifically uses **ThinkPHP 5.1 LTS**, which includes long-term support and many performance/stability enhancements.
 
-We are considering the following enhancements:
+### Sample Commands
 
-- RESTful API endpoints for mobile apps
-- Integration with hospital ERP systems
-- Multi-language support (EN/CH)
-- QR code labels for device tracking
+```bash
+php think run       # Start the built-in server
+php think migrate   # Run database migrations
+```
 
-## 🧑‍💻 Contributing
+## 📜 Change Log
 
-Pull requests are welcome. For major changes, please open an issue first to discuss your ideas.
+This project uses **ThinkPHP 5.1.39 LTS**. Here are some selected updates from recent versions:
 
-## 📄 License
+### V5.1.39 LTS (2019-11-18)
 
-Distributed under the Apache 2.0 License.
+- Fixed memcached driver issues
+- Improved HasManyThrough relationship queries
+- Enhanced `Request::isJson` detection
+- Fixed Redis driver bugs
+- Added support for composite primary keys in `Model::getWhere`
+- Improved PHP 7.4 compatibility
+
+### V5.1.38 LTS (2019-08-08)
+
+- Added `Request::isJson` method
+- Fixed foreign key null queries in relationships
+- Enhanced remote one-to-many relationship support
+
+...
+
+> Full changelog available in `/docs/ChangeLog.md` (or see full list above)
+
+## 📬 Contact
+
+For questions, issues, or contributions, please open an issue on GitHub or contact the maintainer.
 
 ---
 
-> Project maintained by Feng-Lai Lab. Last updated: July 2025.
+© 2025 Finance API Team. Built with ❤️ on ThinkPHP.
